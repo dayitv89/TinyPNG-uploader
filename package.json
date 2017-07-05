@@ -1,0 +1,22 @@
+{
+  "name": "tinypng-uploader",
+  "version": "0.0.1",
+  "description": "tinypng uploader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayitv89/TinyPNG-uploader.git"
+  },
+  "author": "Gaurav D. Sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dayitv89/TinyPNG-uploader/issues"
+  },
+  "homepage": "https://github.com/dayitv89/TinyPNG-uploader#readme",
+  "dependencies": {
+    "tinify": "^1.5.0"
+  }
+}
