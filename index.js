@@ -1,7 +1,6 @@
 var config = require('config');
 
 var tinify = require('tinify');
-tinify.key = config.APP_KEY;
 
 // TODO: read recursive folder name as terminal argument
 // TODO: Find all images with supported file image extension (use config.IMAGE_EXTENSIONS)
