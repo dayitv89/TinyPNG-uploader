@@ -14,16 +14,26 @@ if (process.argv.length <= 3) {
 
 tinify.key = process.argv[2];
 var path = process.argv[3];
+tinifyImage(path);
 
-fs.readdir(path, function(err, items) {
-    for (var i=0; i<items.length; i++) {
-        console.log(path + '/' +  items[i]);
-        if(getFileExtensions(items[i], ['png', 'PNG'])) {
-          var fileuri = path + '/' +  items[i]
-          tinify.fromFile(fileuri).toFile(fileuri);
-        }
+function tinifyImage(file_path) {
+  fs.readdir(file_path, function(err, items) {
+      for (var i=0; i<items.length; i++) {
+              var fileuri = file_path + '/' +  items[i];
+              try{
+              console.log(fileuri);
+              if(!fs.statSync(fileuri).isFile()) {
+                console.log(fileuri);
+                tinifyImage(fileuri);
+              } else if(getFileExtensions(items[i], ['png', 'PNG'])) {
+                tinify.fromFile(fileuri).toFile(fileuri);
+              }
+        } catch(e) {
+           console.log(e);
     }
-});
+  }
+  });
+}
 
 function getFileExtensions(filename, extensions) {
   var ext = (/[.]/.exec(filename)) ? /[^.]+$/.exec(filename)[0] : undefined;
